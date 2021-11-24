@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\EstudianteController;
+use App\Http\Controllers\MateriaController;
+use App\Http\Controllers\TablaPivoteController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('estudiante', EstudianteController::class);
+Route::resource('materia', MateriaController::class)->parameters(['materia' => 'materia']);
+
+Route::post('pivote/agregarMateria/{estudiante}', [TablaPivoteController::class, 'agregarMateria'])->name('pivote.agregarMateria');
+Route::get('pivote/asignarMateria', [TablaPivoteController::class, 'asignarMateria'])->name('pivote.asignarMateria');
