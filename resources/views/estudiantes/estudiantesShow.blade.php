@@ -17,6 +17,16 @@
         <li>{{ $estudiante->correo }}</li>
     </ul>
 
+    @if ($estudiante->materias)
+        Materias que cursa 
+        <ol>
+            @foreach ($estudiante->materias as $materia)
+                <li>{{ $materia->nombre }}</li>
+            @endforeach
+            
+        </ol>
+    @endif
+
     <br>
     <a href="{{ route('estudiante.edit', $estudiante) }}">Editar</a>
 

@@ -16,8 +16,9 @@
     </ul>
     
 
-    <form action="{{ route('pivote.agregarMateria', $estudiante)}}" method="POST">
+    <form action="{{ route('pivote.asignarMateria', $estudiante)}}" method="POST">
         @csrf
+       
         <label for="materia">Agrega una materia por su id</label>
         <br>
         <input type="text" name="id">

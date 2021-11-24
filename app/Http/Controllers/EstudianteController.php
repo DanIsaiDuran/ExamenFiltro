@@ -6,6 +6,7 @@ use App\Models\Estudiante;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TablaPivoteController;
+use App\Models\Materia;
 
 class EstudianteController extends Controller
 {
@@ -40,10 +41,10 @@ class EstudianteController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
-            'codigo' => 'required|integer|max:10|unique:App\Models\Estudiantes, codigo',
+            'codigo' => 'required|integer|unique:App\Models\Estudiante,codigo',
             'carrera' => 'nullable',
             'creditos_cursados' => 'integer|min:0',
-            'correo' => 'nullable|unique:App\Models\Estudiantes, correo' //|unique:estudiantes, correo
+            'correo' => 'nullable|unique:App\Models\Estudiante,correo' //|unique:estudiantes, correo
         ]);
 
         $estudiante = new Estudiante();

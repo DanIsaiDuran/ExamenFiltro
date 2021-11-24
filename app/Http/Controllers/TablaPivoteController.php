@@ -27,6 +27,6 @@ class TablaPivoteController extends Controller
 
         $estudiante->save();
 
-        return redirect()->route('estudiantes.estudiantesShow', $estudiante);
+        return view('estudiantes.estudiantesShow', compact('estudiante'));
     }
 }

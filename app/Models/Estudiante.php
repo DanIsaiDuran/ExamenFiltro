@@ -14,6 +14,6 @@ class Estudiante extends Model
     //Relación muchos a muchos
     public function materias()
     {
-        return $this->belongsToMany(Materias::class);
+        return $this->belongsToMany(Materia::class);
     }
 }
